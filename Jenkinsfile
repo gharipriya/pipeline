@@ -1,8 +1,6 @@
 pipeline {
-	agent any 
+	agent { label 'node1'}
 	stages {
-		stage('Both build and test') {
-			parallel {
 				stage('Build') { 
 					steps {
 						sh '''
@@ -11,8 +9,7 @@ pipeline {
 							git branch:https://github.com/gharipriya/hello-world-war.git
 						'''
 					}
-				}
-				
+				}	
 				stage('Test'){
 					steps {
 						sh '''
@@ -21,8 +18,6 @@ pipeline {
 						'''	
 					}
 				}
-			} 
-		}
 		stage('Deploy'){
 			steps {
 				sh '''
