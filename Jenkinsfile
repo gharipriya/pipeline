@@ -6,7 +6,6 @@ pipeline {
 						sh '''
 							sleep 15
 							 echo "This is a Build stage"
-							git branch:https://github.com/gharipriya/hello-world-war.git
 						'''
 					}
 				}	
